@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
 
-
 # describtion
 def interF(value):
     temp_value = 1
@@ -10,19 +9,36 @@ def interF(value):
     return temp_value;
 
 # describtion
-def recurF(value):
-    if value < 1:
+def recurF(v):
+    if v < 1:
         return 1
     else:
-        return value * recurF(value - 1)
+        return v * recurF(v - 1)
+    
 
-def checkTime(val):
-    t1=time.time()
-    recurF(val)
-    t2=time.time()
-    r = t2-t1;
-    return r;
+def checkTimeR(val):
+    print('Recurcive',time.time(), sep='\n')
+    try:
+        recurF(val)
+    except RuntimeError as err:
+        print(err)
+    print(time.time(), '\n')
+    return;
 
-print(checkTime(20))
+def checkTimeI(val):
+    print('Interaction',time.time(), sep='\n')
+    try:
+        interF(val)
+    except RuntimeError as err:
+        print(err)
+    print(time.time(), '\n')
+    return;
 
+def run():
+    nb = input('Enter the numb:\n')
+    q = int(nb) # Be carefull, it is like int_32
+    checkTimeR(q)
+    checkTimeI(q)
+    return;
 
+run()
