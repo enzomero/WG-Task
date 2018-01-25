@@ -1,27 +1,13 @@
 # -*- coding: utf-8 -*-
 import time
+import factorial
 from timeit import Timer
-
-# describtion
-def interF(v):
-    t_v = 1
-    for i in range(1, v+1):
-        t_v*=i
-    return t_v;
-
-# describtion
-def recurF(v):
-    if v < 1:
-        return 1
-    else:
-        return v * recurF(v - 1)
-    
 
 def checkTimeR(val):
     print 'Recurcive'
     print time.time()
     try:
-        recurF(val)
+        print factorial.factorial_rec(val)
     except RuntimeError as err:
         print err
     print time.time(), '\n'
@@ -31,7 +17,7 @@ def checkTimeI(val):
     print 'Interaction'
     print time.time()
     try:
-        interF(val)
+        print factorial.factorial_itr(val)
     except RuntimeError as err:
         print err
     print time.time()
@@ -39,9 +25,9 @@ def checkTimeI(val):
 
 def run():
     nb = input('Enter the numb:\n')
-    q = nb # Be carefull, it is like int_32
-    checkTimeR(q)
-    checkTimeI(q)
+    print nb
+    checkTimeR(nb)
+    checkTimeI(nb)
     return;
 
 run()
