@@ -31,9 +31,11 @@ res = {
 # p_data        - struct of data which we set as the base
 # p_dataEdited  - struct of data which was changed
 def find(p_data, p_dataEdited):
+    if len(p_data) != len(p_dataEdited): # I supposed that we can change only values.
+        KeyError();
     for i in p_data:
         if (p_data[i] != p_dataEdited[i]):
-            if (type(p_data[i]) != type(10)) :
+            if (type(p_data[i]) != type(10)):
                 find(p_data[i], p_dataEdited[i])
         else:
             p_dataEdited.pop(i)
@@ -44,5 +46,4 @@ def getChanges(p_data, p_dataEdited):
         return find(p_data, p_dataEdited)
     except KeyError as err:
         return 'Can\'t find the key'
-
 
