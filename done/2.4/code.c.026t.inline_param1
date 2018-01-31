@@ -1,0 +1,107 @@
+
+;; Function foo (foo, funcdef_no=13, decl_uid=2574, cgraph_uid=13, symbol_order=13)
+
+
+Analyzing function body size: foo
+
+Inline summary for foo/13 inlinable
+  self time:       4
+  global time:     0
+  self size:       5
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+    size:0.500000, time:0.500000, predicate:(op1[ref offset: 0] changed) && (not inlined)
+    size:0.500000, time:0.500000, predicate:(op1[ref offset: 0] changed)
+    size:1.000000, time:1.000000, predicate:(op1[ref offset: 0] changed || op0 changed)
+  calls:
+
+foo (int a, int * b)
+{
+  int _3;
+  int _5;
+
+  <bb 2>:
+  _3 = *b_2(D);
+  _5 = _3 + a_4(D);
+  return _5;
+
+}
+
+
+
+;; Function func (func, funcdef_no=14, decl_uid=2577, cgraph_uid=14, symbol_order=14)
+
+
+Analyzing function body size: func
+
+Inline summary for func/14 inlinable
+  self time:       29
+  global time:     0
+  self size:       12
+  global size:     0
+  min size:       0
+  self stack:      4
+  global stack:    4
+    size:2.000000, time:2.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    printf/17 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+    foo/13 function not considered for inlining
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 2 stack: 0
+       op1 is compile time invariant
+
+func ()
+{
+  int r;
+  int y;
+  int x.0_3;
+
+  <bb 2>:
+  y = 7;
+  x.0_3 = x;
+  r_5 = foo (x.0_3, &y);
+  printf ("%d\n", r_5);
+  y ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=15, decl_uid=2581, cgraph_uid=15, symbol_order=15)
+
+
+Analyzing function body size: main
+
+Inline summary for main/15 inlinable
+  self time:       12
+  global time:     0
+  self size:       4
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    func/14 function not considered for inlining
+      loop depth: 0 freq:1000 size: 1 time: 10 callee size: 4 stack: 0
+
+main ()
+{
+  int _3;
+
+  <bb 2>:
+  func ();
+  _3 = 0;
+  return _3;
+
+}
+
+
