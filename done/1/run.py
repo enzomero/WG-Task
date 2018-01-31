@@ -29,19 +29,25 @@ def ut_changeStructRemove():
 def ut_changeStructAdd():
     lv_data = {'a' : {'a1' : 1,'a2' : 2,}, 'b' : {'b1' : {'b11' : 1,'b12' : 2,},}}
     lv_dataSec = {'a' : {'a1' : 1,'a2' : 2,'a3' : 1,}, 'b' : {'b1' : {'b11' : 1,'b12' : 2,},}}
-    return datadiff.getChanges(lv_data, lv_dataSec)
+    return verdict(lv_data, lv_dataSec, {'a': {'a3': 1}})
 
-# The function which return verdict string
 # p_data        - base value of data
 # p_dataSec     - changed data
 # p_expect      - expected difference
 def verdict(p_data, p_dataSec, p_expect = {}):
-    if datadiff.getChanges(p_data, p_dataSec) == p_expect :
-        return 'pass'
+    print p_data
+    print p_dataSec
+    print 'Expect:'
+    print p_expect
+    print 'Got:'
+    vl_got = datadiff.getChanges(p_data, p_dataSec)
+    print vl_got
+    print 'Verdict:'
+    if vl_got == p_expect :
+        return 'pass\n'
     else :
-        return 'fail'
-    
-# for incapsulation
+        return 'fail\n'
+
 def control():
     print ut_mainScenario()
     print ut_noDiffiriance()
@@ -50,4 +56,4 @@ def control():
     print ut_changeStructAdd()
 
 control()
-
+input('')
