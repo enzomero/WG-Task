@@ -35,6 +35,7 @@ def ut_changeStructAdd():
 # p_dataSec     - changed data
 # p_expect      - expected difference
 def verdict(p_data, p_dataSec, p_expect = {}):
+    print "The data"
     print p_data
     print p_dataSec
     print 'Expect:'
@@ -56,4 +57,4 @@ def control():
     print ut_changeStructAdd()
 
 control()
-input('')
+raw_input('')
