@@ -1,9 +1,3 @@
-def reverseTri(couple):
-    temp = couple[0]
-    couple[0] = couple[1]
-    couple[1] = temp
-    return couple
-
 def prepareStr():
     arr = []
     str = raw_input("go:").rstrip("\r")
@@ -20,37 +14,33 @@ def prepareTri(arr):
         temp = []
         for i in range(0, 3):
             temp.append(next(itr))
-        arrTri.append(temp)
+        arrTri.append([temp[0],temp[1]])
+        arrTri.append([temp[1],temp[2]])
+        arrTri.append([temp[2],temp[0]])
     return arrTri
 
 def findOposite(value):
-    iter = 0
-    arr = [int]
     for t in value:
-        a = [ t[0], t[1] ]
-        b = [ t[1], t[2] ]
-        c = [ t[2], t[0] ]
+        result = -1
+        itr = 0
         for i in value:
-            temp = -1
-            if (i != t):
-                if (reverseTri([i[0], i[1]]) == a or
-                    reverseTri([i[0], i[1]]) == b or
-                    reverseTri([i[0], i[1]]) == c):
-                    temp = i[2];
+            if i != t:
+                if t == [i[1],i[0]]:
+                    result = itr
+            itr+=1
+        print result
 
-                if (reverseTri([i[1], i[2]]) == a or
-                    reverseTri([i[1], i[2]]) == b or
-                    reverseTri([i[1], i[2]]) == c):
-                    temp = i[0];
-
-                if (reverseTri([i[2], i[0]]) == a or
-                    reverseTri([i[2], i[0]]) == b or
-                    reverseTri([i[2], i[0]]) == c):
-                    temp = i[1];
-            arr.append(temp)
-    arr.reverse()
-    print arr
-    return 'pass'
+def findOposite2(value):
+    while len(value)>0:
+        t = value.pop(0)
+        result = -1
+        itr = 0
+        for i in value:
+            if t == [i[1],i[0]]:
+                result = itr
+            itr+=1
+        print result
     
-print findOposite(prepareTri(prepareStr()))
+    
+findOposite2(prepareTri(prepareStr()))
 
