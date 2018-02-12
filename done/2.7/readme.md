@@ -19,9 +19,14 @@ The foo object has the following definition:
 What kind of issues might arise when loading foo on platform 2? [6 marks]
 
 1 The 'float' numbers
+
 2 Pointing to invalid memory
+
 3 Sizes of data types
+
 4 Padding
+
 5 Endianness
+
 6 I think exist more also...
 
