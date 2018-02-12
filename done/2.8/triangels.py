@@ -1,3 +1,5 @@
+import copy
+
 def prepareStr():
     arr = []
     str = raw_input("go:").rstrip("\r")
@@ -5,7 +7,7 @@ def prepareStr():
     if (len(arr)%3) == 0:
         return arr
     else:
-        return 'fuck'
+        return 'WTF!'
 
 def prepareTri(arr):
     arrTri = []
@@ -30,17 +32,20 @@ def findOposite(value):
             itr+=1
         print result
 
-def findOposite2(value):
-    while len(value)>0:
-        t = value.pop(0)
-        result = -1
-        itr = 0
-        for i in value:
-            if t == [i[1],i[0]]:
-                result = itr
-            itr+=1
-        print result
-    
-    
-findOposite2(prepareTri(prepareStr()))
+'''
+def findOpositeOpti(arrayList, v = [0,0], index = 0):
+    mid = int(len(arrayList)/2)
+    if index == 0 or index == len(arrayList):
+        return
+    if arrayList[0] == [v[1], v[0]] :
+        print index
+    else:
+        print '-1'
+        findOpositeOpti(arrayList, arrayList[0], index + 1)
+        findOpositeOpti(arrayList, arrayList[0], index - 1)
 
+        
+findOpositeOpti(prepareTri(prepareStr()))
+'''
+
+findOposite(prepareTri(prepareStr()))
