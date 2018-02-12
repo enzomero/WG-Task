@@ -6,50 +6,51 @@ class LinkedList:
    def __init__(self,head = None):
        self.head = head
 
-
-   def addNode(self, data):
-       newNode = Node(data,self.head)
-       self.head = newNode
+   def addNode(self, p_data):
+       lv_node = Node(p_data,self.head)
+       self.head = lv_node
        return True
 
    def reverse(self):
-       curr = self.head
-       lList = LinkedList()
-       while curr:
-           lList.addNode(getattr(curr, 'data', 'empty'))
-           curr = getattr(curr, 'nextNode', 'None')
-       return lList;
+       lv_curr = self.head
+       lv_list = LinkedList()
+       while lv_curr:
+           lv_list.addNode(getattr(lv_curr, 'data', 'empty'))
+           lv_curr = getattr(lv_curr, 'nextNode', 'None')
+       return lv_list;
        
    def printNode(self):
-       curr = self.head
-       while curr:
-           print(getattr(curr, 'data', 'empty'))
-           curr = getattr(curr, 'nextNode', 'None')
+       lv_curr = self.head
+       while lv_curr:
+           print(getattr(lv_curr, 'data', 'empty'))
+           lv_curr = getattr(lv_curr, 'nextNode', 'None')
 
-   def reverseAfter(self, val):
-       curr = self.head
-       lList = LinkedList()
+   def reverseAfter(self, p_val):
+       lv_curr = self.head
+       lv_list = LinkedList()
        # First run
-       while curr:
-           lList.addNode(getattr(curr, 'data', 'empty'))
-           if getattr(curr, 'data', 'empty') == val:
-               lList = lList.reverse()
-           curr = getattr(curr, 'nextNode', 'None')
-       return lList
-           
-myList = LinkedList()
+       while lv_curr:
+           lv_list.addNode(getattr(lv_curr, 'data', 'empty'))
+           if getattr(lv_curr, 'data', 'empty') == p_val:
+               lv_list = lv_list.reverse()
+           lv_curr = getattr(lv_curr, 'nextNode', 'None')
+       return lv_list
+
+
+# Runing 
+gv_list = LinkedList()
 print("Entre simbol by one")
 while 1:
-    value = raw_input("")
-    value = value.rstrip("\r")
-    if value:
-        myList.addNode(value)
+    lv_value = raw_input("")
+    lv_value = lv_value.rstrip("\r")
+    if lv_value:
+        gv_list.addNode(lv_value)
     else:
         break;
 print("Entre HEAD of reverse")
-value = raw_input("")
-value = value.rstrip("\r")
+gv_value = raw_input("")
+gv_value = gv_value.rstrip("\r")
 print("----Result----")
-myList = myList.reverseAfter(value)
-myList.printNode()
+gv_list = gv_list.reverseAfter(gv_value)
+gv_list.printNode()
 raw_input("Enter for close")

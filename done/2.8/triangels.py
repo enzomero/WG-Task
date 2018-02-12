@@ -37,37 +37,38 @@ void findConnectivity(unsigned short* indexTriples, int T, int* connectivityOut)
 '''
 
 def prepareStr():
-    arr = []
-    str = raw_input("Enter numberes (example: 0,2,7,1,3,5,6,2,0):").rstrip("\r")
-    arr = str.split(',')
-    if (len(arr)%3) == 0:
-        return arr
+    lv_arr = []
+    lv_str = raw_input("Enter numberes (example: 0,2,7,1,3,5,6,2,0):").rstrip("\r")
+    lv_arr = lv_str.split(',')
+    if (len(lv_arr)%3) == 0:
+        return lv_arr
     else:
         return 'WTF!'
 
-def prepareTri(arr):
-    arrTri = []
-    itr = iter(arr)
-    for t in range(1, (len(arr)/3+1)):
-        temp = []
+def prepareTri(p_arr):
+    lv_arrTri = []
+    lv_itr = iter(p_arr)
+    for t in range(1, (len(p_arr)/3+1)):
+        lv_t = []
         for i in range(0, 3):
-            temp.append(next(itr))
-        arrTri.append([temp[0],temp[1]])
-        arrTri.append([temp[1],temp[2]])
-        arrTri.append([temp[2],temp[0]])
-    return arrTri
+            lv_t.append(next(lv_itr))
+        lv_arrTri.append([lv_t[0],lv_t[1]])
+        lv_arrTri.append([lv_t[1],lv_t[2]])
+        lv_arrTri.append([lv_t[2],lv_t[0]])
+    return lv_arrTri
 
-def findOposite(value):
-    for t in value:
-        result = -1
-        itr = 0
-        for i in value:
+def findOposite(p_value):
+    for t in p_value:
+        lv_result = -1
+        lv_itr = 0
+        for i in p_value:
             if i != t:
                 if t == [i[1],i[0]]:
-                    result = itr
-            itr+=1
-        print result
+                    lv_result = lv_itr
+            lv_itr+=1
+        print lv_result
 
+#Graveyard of ideas
 '''
 def findOpositeOpti(arrayList, v = [0,0], index = 0):
     mid = int(len(arrayList)/2)
