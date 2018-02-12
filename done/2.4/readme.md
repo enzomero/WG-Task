@@ -4,20 +4,20 @@ execution of the code below when func() is called. [8 marks]
 What changes if foo is inlined? [2 marks]
 '''
 
-int foo( int a, int* b)
-{
-return a + *b;
-}
+    int foo( int a, int* b)
+    {
+    return a + *b;
+    }
 
-extern int x;
+    extern int x;
 
-void func()
-{
-int y = 7;
-int r;
-r = foo( x, &y );
-printf("%d\n", r);
-}
+    void func()
+    {
+    int y = 7;
+    int r;
+    r = foo( x, &y );
+    printf("%d\n", r);
+    }
 
 '''
 We can ask it our compiler) If we used optimization we have not any difference.
