@@ -85,3 +85,4 @@ findOpositeOpti(prepareTri(prepareStr()))
 '''
 
 findOposite(prepareTri(prepareStr()))
+raw_input("")
