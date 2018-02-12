@@ -38,7 +38,7 @@ void findConnectivity(unsigned short* indexTriples, int T, int* connectivityOut)
 
 def prepareStr():
     arr = []
-    str = raw_input("go:").rstrip("\r")
+    str = raw_input("Enter numberes (example: 0,2,7,1,3,5,6,2,0):").rstrip("\r")
     arr = str.split(',')
     if (len(arr)%3) == 0:
         return arr
