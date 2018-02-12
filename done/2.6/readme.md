@@ -26,28 +26,20 @@ NOTE that there is/are (at least):
         }
 
 #1
-'''
 I suppose that is possibility for numRemaining be less then 0 and I think
 second cycle should be like that:
     for (int i=0 ; i < numRemaining; i++); 
-'''
 
 #2 portability issues
-'''
-'int' may be  not 32 bits, its depend from hardware and OS.
-
+The 'int' may be  not 32 bits, its depend from hardware and OS.
 I suppose that if 'src' is an odd address,
 trying to read 32 bits from it can make crash.
-'''
 
 #3
-'''
 From the code:
 
         dst = (char*)wordDst;
         src = (char*)wordSrc;
-        for (int i=0 ; i <= numRemaining; i++)';' <-- It is syntax error
+        for (int i=0 ; i <= numRemaining; i++)';' **<-- It is syntax error**
         {
             *dst++ = *src++;
-
-'''
