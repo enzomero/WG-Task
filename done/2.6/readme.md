@@ -34,10 +34,10 @@ second cycle should be like that:
 
 #2 portability issues
 '''
-    'int' may be  not 32 bits, its depend from hardware and OS.
-    
-    I suppose that if 'src' is an odd address,
-    trying to read 32 bits from it can make crash.
+'int' may be  not 32 bits, its depend from hardware and OS.
+
+I suppose that if 'src' is an odd address,
+trying to read 32 bits from it can make crash.
 '''
 
 #3
