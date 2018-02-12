@@ -24,6 +24,7 @@ Note: All code here is run in a single-threaded environment.
 
 where testPasses has the following signature and executes deterministically
 with no side effects:
+
         bool testPasses(float f1, float f2, float f3);
 
         void testRepro()
