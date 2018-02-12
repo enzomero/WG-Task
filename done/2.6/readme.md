@@ -43,12 +43,11 @@ second cycle should be like that:
 #3
 '''
 From the code:
-        ...
+
         dst = (char*)wordDst;
         src = (char*)wordSrc;
         for (int i=0 ; i <= numRemaining; i++)';' <-- It is syntax error
         {
             *dst++ = *src++;
-        ...
 
 '''
