@@ -4,32 +4,32 @@ example code below. Consider:
 i. Scope &amp; Lifetime [4 marks]
 ii. Performance &amp; use of system resources [6 marks]
 
-char buffer1[512];
+      char buffer1[512];
 
-void func1()
-{
-char buffer2[1024];
-#...
-}
+      void func1()
+      {
+      char buffer2[1024];
+      #...
+      }
 
-void func2()
-{
-char* buffer3 = static_cast<char*>; ( malloc(2048) );
-#...
-}
-'''
-#Answers
+      void func2()
+      {
+      char* buffer3 = static_cast<char*>; ( malloc(2048) );
+      #...
+      }
+      '''
+      #Answers
 
-char buffer[512]
+      char buffer[512]
 
-''' Global scope for a process, it exist while exist the process
-In general it will has low ipact for perfomance. '''
+      ''' Global scope for a process, it exist while exist the process
+      In general it will has low ipact for perfomance. '''
 
-void func1()
-{
-char buffer2[1024];
-//...
-}
+      void func1()
+      {
+      char buffer2[1024];
+      //...
+      }
 
 ''' Local scope for a function, lifetime depend from the functon,
 it means that lifetime of the buffer equal of lifetime for the function.
